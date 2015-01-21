@@ -30,14 +30,9 @@ module.exports = yeoman.generators.Base.extend({
 
   writing: {
     app: function () {
-      this.fs.copy(
-        this.templatePath('_package.json'),
-        this.destinationPath('package.json')
-      );
-      this.fs.copy(
-        this.templatePath('_bower.json'),
-        this.destinationPath('bower.json')
-      );
+			this.template('_bower.json', 'bower.json');
+			this.template('_package.json', 'package.json');
+			this.template('_README.md', 'README.md');
     },
 
     projectfiles: function () {
@@ -49,12 +44,26 @@ module.exports = yeoman.generators.Base.extend({
         this.templatePath('jshintrc'),
         this.destinationPath('.jshintrc')
       );
+      this.fs.copy(
+        this.templatePath('bowerrc'),
+        this.destinationPath('.bowerrc')
+      );
+      this.fs.copy(
+        this.templatePath('gitignore'),
+        this.destinationPath('.gitignore')
+      );
+      this.fs.copy(
+        this.templatePath('Gruntfile.js'),
+        this.destinationPath('Gruntfile.js')
+      );
+			this.directory('src');
     }
   },
 
   install: function () {
     this.installDependencies({
-      skipInstall: this.options['skip-install']
+			npm: true,
+			bower: false
     });
   }
 });

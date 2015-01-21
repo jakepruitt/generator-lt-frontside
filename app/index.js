@@ -1,7 +1,7 @@
 'use strict';
 var yeoman = require('yeoman-generator');
-var chalk = require('chalk');
-var yosay = require('yosay');
+var util = require('../util');
+var path = require('path');
 
 module.exports = yeoman.generators.Base.extend({
   initializing: function () {
@@ -12,19 +12,17 @@ module.exports = yeoman.generators.Base.extend({
     var done = this.async();
 
     // Have Yeoman greet the user.
-    this.log(yosay(
-      'Welcome to the impeccable ' + chalk.red('LtFrontside') + ' generator!'
-    ));
+    this.log(util.greeting);
 
     var prompts = [{
-      type: 'confirm',
-      name: 'someOption',
-      message: 'Would you like to enable this option?',
-      default: true
+      type: 'input',
+      name: 'projectName',
+      message: 'What would you like to name your project?',
+      default: path.basename(process.cwd())
     }];
 
     this.prompt(prompts, function (props) {
-      this.someOption = props.someOption;
+      this.projectName = props.projectName;
 
       done();
     }.bind(this));

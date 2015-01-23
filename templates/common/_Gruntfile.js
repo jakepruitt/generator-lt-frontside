@@ -16,14 +16,14 @@ module.exports = function(grunt) {
 		// Sass compilation
 		sass: {
 			options: {
-				includePaths: ['<%= config.src %>/bower_components/foundation/scss'],
+				includePaths: ['<%%= config.src %>/bower_components/foundation/scss'],
 			},
 			serve: {
 				options: {
 					outputStyle: 'compressed'
 				},
 				files: {
-					'.tmp/css/app.css': '<%= config.src %>/scss/app.scss'
+					'.tmp/css/app.css': '<%%= config.src %>/scss/app.scss'
 				}
 			},
 			dist: {
@@ -31,7 +31,7 @@ module.exports = function(grunt) {
 					outputStyle: 'compressed'
 				},
 				files: {
-					'<%= config.dist %>/css/app.css': '<%= config.src %>/scss/app.scss'
+					'<%%= config.dist %>/css/app.css': '<%%= config.src %>/scss/app.scss'
 				}
 			}
 		},
@@ -42,7 +42,7 @@ module.exports = function(grunt) {
 			all: {
 				src: [
 					'Gruntfile.js',
-					'<%= config.src %>/js/{,*/}*.js'
+					'<%%= config.src %>/js/{,*/}*.js'
 				]
 			}
 		},
@@ -71,7 +71,7 @@ module.exports = function(grunt) {
 			grunt: { files: ['Gruntfile.js'] },
 			
 			sass: {
-				files: '<%= config.src %>/scss/{,*/}*.scss',
+				files: '<%%= config.src %>/scss/{,*/}*.scss',
 				tasks: ['sass:serve'],
 				options: {
 					livereload: true
@@ -79,7 +79,7 @@ module.exports = function(grunt) {
 			},
 
 			js: {
-				files: '<%= config.src %>/js/{,*/}*.js',
+				files: '<%%= config.src %>/js/{,*/}*.js',
 				tasks: ['jshint:all'],
 				options: {
 					livereload: true
@@ -88,9 +88,9 @@ module.exports = function(grunt) {
 
 			livereload: {
 				files: [
-					'<%= config.src %>/*.html',
-					'<%= config.src %>/js/{,*/}*.js',
-					'<%= config.src %>/images/{,*/}*.{png,jpg,jpeg,webp}'
+					'<%%= config.src %>/*.html',
+					'<%%= config.src %>/js/{,*/}*.js',
+					'<%%= config.src %>/images/{,*/}*.{png,jpg,jpeg,webp}'
 				],
 				options: {
 					livereload: true
@@ -101,7 +101,7 @@ module.exports = function(grunt) {
 		// Empties folders to start fresh
 		clean: {
 			serve: '.tmp',
-			dist: '<%= config.dist %>'
+			dist: '<%%= config.dist %>'
 		},
 
 		// Copies files from src to dist
@@ -110,8 +110,8 @@ module.exports = function(grunt) {
 				files: [{
 					expand: true,
 					dot: true,
-					cwd: '<%= config.src %>',
-					dest: '<%= config.dist %>',
+					cwd: '<%%= config.src %>',
+					dest: '<%%= config.dist %>',
 					src: [
 						'*.{ico,png,txt}',
 						'.htaccess',
@@ -127,14 +127,14 @@ module.exports = function(grunt) {
 		// Reads HTML for build blocks to enable smart builds that
 		// reference the proper files
 		useminPrepare: {
-			html: ['<%= config.src %>/*.html'],
+			html: ['<%%= config.src %>/*.html'],
 			options: {
-				dest: '<%= config.dist %>'
+				dest: '<%%= config.dist %>'
 			}
 	 	},				
 
 		usemin: {
-			html: '<%= config.dist %>/*.html'
+			html: '<%%= config.dist %>/*.html'
 		},
 
 		// Performs metrics on built assets

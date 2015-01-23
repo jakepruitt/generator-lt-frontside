@@ -36,22 +36,32 @@ module.exports = function(grunt) {
 			}
 		},
 
-		<% if (jade) %>
+		<% if (jade) { %>
 		// Jade compilation
 		jade: {
 			options: {
 				pretty: true
 			},
 			serve: {
-				options: {},
-				files: {
-					'.tmp/*.html': '<%% config.src %>/*.jade'
-				}
+				options: {
+					pretty: true,
+				},
+				files: [{
+					expand: true,
+					cwd: 'src',
+					src: '*.jade',
+					dest: '.tmp',
+					ext: '.html'
+				}]
 			},
 			dist: {
-				files: {
-					'.tmp/*.html': '<%%= config.src %>/*.jade'
-				}
+				files: [{
+					expand: true,
+					cwd: 'src',
+					src: '*.jade',
+					dest: '.tmp',
+					ext: '.html'
+				}]
 			}
 		},
 		<% } %>
@@ -151,7 +161,7 @@ module.exports = function(grunt) {
 						<% if (!jade) { %>
 						'*.html',
 						<% } else { %>
-						'.tmp/*.html'
+						'.tmp/*.html',
 						<% } %>
 						'js/{,*/}*.js',
 						'images/{,*/}*.{png,jpg,jpeg,webp}',
@@ -220,7 +230,7 @@ module.exports = function(grunt) {
 		'uglify:generated',
 		'sass:dist',
 		<% if (jade) { %>
-		'jade:dist'
+		'jade:dist',
 		<% } %>
 		'copy:dist',
 		'usemin'

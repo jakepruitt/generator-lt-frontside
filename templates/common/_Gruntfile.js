@@ -160,14 +160,17 @@ module.exports = function(grunt) {
 						'.htaccess',
 						<% if (!jade) { %>
 						'*.html',
-						<% } else { %>
-						'.tmp/*.html',
 						<% } %>
 						'js/{,*/}*.js',
 						'images/{,*/}*.{png,jpg,jpeg,webp}',
 						'fonts/{,*/}*.*'
 					]
-				}]
+				}<% if (jade) { %>, {
+					expand: true,
+					cwd: '.tmp',
+					dest: '<%%= config.dist %>',
+					src: '*.html'
+				}<% } %>]
 			}
 		},
 
@@ -225,13 +228,13 @@ module.exports = function(grunt) {
 	grunt.registerTask('build', 'Generate dist folder with built assets', [
 		'clean:dist',
 		'jshint',
+		<% if (jade) { %>
+		'jade:dist',
+		<% } %>
 		'useminPrepare',
 		'concat:generated',
 		'uglify:generated',
 		'sass:dist',
-		<% if (jade) { %>
-		'jade:dist',
-		<% } %>
 		'copy:dist',
 		'usemin'
 	]);

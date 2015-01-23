@@ -5,7 +5,7 @@ html.no-js(lang="en")
 		meta(name="viewport",content="width=device-width, initial-scale=1.0")
 		title Foundation
 		link(rel="stylesheet",href="css/app.css")
-		// build:js js/modernizr.min.js
+		// build:js(src) js/modernizr.min.js
 		script(src="bower_components/modernizr/modernizr.js")
 		// endbuild
 	body(class='page')
@@ -23,9 +23,9 @@ html.no-js(lang="en")
 						.large-4.medium-4.columns
 							p <a href="http://foundation.zurb.com/docs">Foundation Documentation</a><br />Everything you need to know about using the framework.
 						.large-4.medium-4.columns
-              p <a href="http://github.com/zurb/foundation">Foundation on Github</a><br />Latest code, issue reports, feature requests and more.
+							p <a href="http://github.com/zurb/foundation">Foundation on Github</a><br />Latest code, issue reports, feature requests and more.
 						.large-4.medium-4.columns
-              p <a href="http://twitter.com/foundationzurb">@foundationzurb</a><br />Ping us on Twitter if you have questions. If you build something with this we'd love to see it (and send you a totally boss sticker).
+							p <a href="http://twitter.com/foundationzurb">@foundationzurb</a><br />Ping us on Twitter if you have questions. If you build something with this we'd love to see it (and send you a totally boss sticker).
 								
 		.row
 			.large-8.medium-8.columns
@@ -118,7 +118,7 @@ html.no-js(lang="en")
 					a.small.button(href="http://foundation.zurb.com/docs/") Go to Foundation Docs
         
       
-		// build:js js/vendor.min.js 
+		// build:js(src) js/vendor.min.js 
 		script(src="bower_components/jquery/dist/jquery.min.js")
 		script(src="bower_components/foundation/js/foundation.min.js")
 		// endbuild 

@@ -36,6 +36,27 @@ module.exports = function(grunt) {
 			}
 		},
 
+		<% if (jade) %>
+		// Jade compilation
+		jade: {
+			options: {
+				pretty: true
+			},
+			serve: {
+				options: {},
+				files: {
+					'.tmp/*.html': '<%% config.src %>/*.jade'
+				}
+			},
+			dist: {
+				files: {
+					'.tmp/*.html': '<%%= config.src %>/*.jade'
+				}
+			}
+		},
+		<% } %>
+
+
 		// Test JavaScript files for code goodness
 		jshint: {
 			jshintrc: '.jshintrc',
@@ -78,6 +99,16 @@ module.exports = function(grunt) {
 				}
 			},
 
+			<% if (jade) { %>
+			jade: {
+				files: '<%%= config.src %>/{,*/}*.jade',
+				tasks: ['jade:serve'],
+				options: {
+					livereload: true
+				}
+			},
+			<% } %>
+
 			js: {
 				files: '<%%= config.src %>/js/{,*/}*.js',
 				tasks: ['jshint:all'],
@@ -88,7 +119,9 @@ module.exports = function(grunt) {
 
 			livereload: {
 				files: [
+					<% if (!jade) { %>
 					'<%%= config.src %>/*.html',
+					<% } %>
 					'<%%= config.src %>/js/{,*/}*.js',
 					'<%%= config.src %>/images/{,*/}*.{png,jpg,jpeg,webp}'
 				],
@@ -101,7 +134,7 @@ module.exports = function(grunt) {
 		// Empties folders to start fresh
 		clean: {
 			serve: '.tmp',
-			dist: '<%%= config.dist %>'
+			dist: ['.tmp', '<%%= config.dist %>']
 		},
 
 		// Copies files from src to dist
@@ -115,7 +148,11 @@ module.exports = function(grunt) {
 					src: [
 						'*.{ico,png,txt}',
 						'.htaccess',
+						<% if (!jade) { %>
 						'*.html',
+						<% } else { %>
+						'.tmp/*.html'
+						<% } %>
 						'js/{,*/}*.js',
 						'images/{,*/}*.{png,jpg,jpeg,webp}',
 						'fonts/{,*/}*.*'
@@ -127,7 +164,11 @@ module.exports = function(grunt) {
 		// Reads HTML for build blocks to enable smart builds that
 		// reference the proper files
 		useminPrepare: {
+			<% if (!jade) { %>
 			html: ['<%%= config.src %>/*.html'],
+			<% } else { %>
+			html: ['.tmp/*.html'],
+			<% } %>
 			options: {
 				dest: '<%%= config.dist %>'
 			}
@@ -156,6 +197,9 @@ module.exports = function(grunt) {
 	grunt.registerTask('serve', 'Compile then start a web server', [
 		'clean:serve',
 		'sass:serve',
+		<% if (jade) { %>
+		'jade:serve',
+		<% } %>
 		'connect:serve',
 		'watch'
 	]);
@@ -175,6 +219,9 @@ module.exports = function(grunt) {
 		'concat:generated',
 		'uglify:generated',
 		'sass:dist',
+		<% if (jade) { %>
+		'jade:dist'
+		<% } %>
 		'copy:dist',
 		'usemin'
 	]);

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>generator-lt-frontside by jrpruit1</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>generator-lt-frontside</h1>
+        <h2>Yeoman generator for LaneTerralever Frontend Projects</h2>
+        <a href="https://github.com/jrpruit1/generator-lt-frontside" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h2>
+<a id="start-projects-in-seconds" class="anchor" href="#start-projects-in-seconds" aria-hidden="true"><span class="octicon octicon-link"></span></a>Start Projects in Seconds</h2>
+
+<p>The LaneTerralever Front-side generator is a command-line tool for getting projects started quickly. To get started, make sure you <a href="https://docs.npmjs.com/getting-started/installing-node">have Node.js installed</a> from the <a href="http://nodejs.org/download/">Node.js download page</a>. Then, download <a href="http://yeoman.io/">Yeoman</a>, the web scaffolding tool, from npm:</p>
+
+<div class="highlight highlight-bash"><pre>npm install -g yo</pre></div>
+
+<p>This will allow you to run the <code>yo</code> command from any of your folders. There are <a href="http://yeoman.io/generators/">many generators</a> that work with Yeoman, but we created one special for LaneTerralever front-end projects, called <code>generator-lt-frontside</code>. To download it from npm, run</p>
+
+<div class="highlight highlight-bash"><pre>npm install -g generator-lt-frontside</pre></div>
+
+<p>You now have the generator, and can run it anywhere on your computer! Create an empty folder somewhere on your computer, and inside of it run:</p>
+
+<div class="highlight highlight-bash"><pre>yo lt-frontside</pre></div>
+
+<p>And you will have a brand new project, with everything you need to make great front-ends!</p>
+
+<h2>
+<a id="great-built-in-tools" class="anchor" href="#great-built-in-tools" aria-hidden="true"><span class="octicon octicon-link"></span></a>Great Built-in Tools</h2>
+
+<p>Your project has a few great commands baked into it from our experience working on front-end projects. To start a live-reloading server that compiles your sass on the spot, run the command:</p>
+
+<div class="highlight highlight-bash"><pre>npm start</pre></div>
+
+<p>Now any changes you make in your <code>src</code> directory will show up in your browser. To build the source into a completed version in the <code>dist</code> folder, run:</p>
+
+<div class="highlight highlight-bash"><pre>npm run build</pre></div>
+
+<p>Now all of your files are minified, concatenated, and compiled, ready for any browser to use.</p>
+
+<p>To test your code for style standards and performance metrics, run the test command:</p>
+
+<div class="highlight highlight-bash"><pre>npm <span class="pl-s3">test</span></pre></div>
+
+<p>This will spin perform a <a href="https://github.com/macbre/phantomas">Phantomas</a> analysis on the build folder, and produce some nice graphs to check your metrics!</p>
+
+<h2>
+<a id="why-use-this" class="anchor" href="#why-use-this" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why use this?</h2>
+
+<p>We have been building front-ends for a long time at LaneTerralever, and we've used a lot of technologies, including Bootstrap, LESS, Sass, Angular, Ember, Foundation, Middleman, Grunt, Gulp, Bower, Bundler, npm, CoffeeScript, Jade, Haml, and dozens of other front-end tools. Every project had its own setup, with its own commands and compilation steps. There were no standards, and every project felt like it needed to retread the same water.</p>
+
+<p>With this toolkit, we hope to remove headache of setting up a new project. This toolkit makes it easy to get started quickly on a project and not fuss with any configuration.</p>
+
+<p>We hope to stay up to date with the rotating gambit of new technology, and make it easy to utilize cutting edge technology while still conforming to standards. To do this, we are relying on <a href="http://bower.io/">Bower</a> as a dependency manager to keep our dependencies up to date and handle new versions of technology with one command. </p>
+
+<p>We also want to use new tools that come in to the front-end world, like pre-compiled languages, code conformance checkers, and performance enhancing tools. <a href="http://gruntjs.com/">Grunt</a> allows us to easily incorporate these actions into the easy workflow of testing, building, and working in development.</p>
+
+<h2>
+<a id="technology" class="anchor" href="#technology" aria-hidden="true"><span class="octicon octicon-link"></span></a>Technology</h2>
+
+<p>Currently, we want to keep this starter template minimal enough for you to use what you want, while using the best set of technology that we believe makes front-end development more reusable and painless. We chose to use <a href="http://sass-lang.com/">Sass</a>, <a href="http://foundation.zurb.com/">Foundation</a>, and optionally <a href="http://jade-lang.com/">Jade</a>.</p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/jrpruit1/generator-lt-frontside/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/jrpruit1/generator-lt-frontside/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/jrpruit1/generator-lt-frontside"></a> is maintained by <a href="https://github.com/jrpruit1">jrpruit1</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>

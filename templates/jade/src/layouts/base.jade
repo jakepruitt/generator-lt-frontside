@@ -1,0 +1,21 @@
+doctype html
+html.no-js(lang="en")
+	head
+		meta(charset="utf-8")
+		meta(name="viewport",content="width=device-width, initial-scale=1.0")
+		block title
+			title Foundation
+		link(rel="stylesheet",href="css/app.css")
+		block styles
+		// build:js(src) js/modernizr.min.js
+		script(src="bower_components/modernizr/modernizr.js")
+		// endbuild
+	body(class='page')
+		block content
+
+		// build:js(src) js/vendor.min.js 
+		script(src="bower_components/jquery/dist/jquery.min.js")
+		script(src="bower_components/foundation/js/foundation.min.js")
+		// endbuild 
+		block scripts
+		script(src="js/app.js")

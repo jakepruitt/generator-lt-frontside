@@ -78,7 +78,7 @@ module.exports = yeoman.generators.Base.extend({
 					this.templatePath('src/index.jade'),
 					this.destinationPath('src/index.jade')
 				);
-				this.directory('src/layout');
+				this.directory('src/layouts');
 				this.directory('src/partials');
 			} else {
 				this.fs.copy(
